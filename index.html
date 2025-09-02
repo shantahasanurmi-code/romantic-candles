@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Happy Birthday 🎂</title>
+  <style>
+    body { text-align: center; background: #ffe4e1; font-family: Arial; }
+    h1 { color: #d63384; }
+    .cake { margin: 40px auto; position: relative; width: 200px; height: 150px; background: #ffb347; border-radius: 0 0 20px 20px; }
+    .candle { width: 6px; height: 25px; background: #fff; margin: 0 2px; display: inline-block; position: relative; }
+    .flame { width: 8px; height: 12px; background: gold; border-radius: 50%; position: absolute; top: -14px; left: -1px; animation: flicker 0.3s infinite alternate; }
+    @keyframes flicker { from {transform: scale(1);} to {transform: scale(1.2);} }
+    .out .flame { display: none; }
+    button { margin-top: 30px; padding: 10px 20px; background: #d63384; color: #fff; border: none; border-radius: 10px; cursor: pointer; font-size: 16px; }
+  </style>
+</head>
+<body>
+  <h1>Happy Birthday, My Love❤️</h1>
+  <p>31 candles just for you 🎂</p>
+  <div class="cake" id="cake"></div>
+  <button onclick="blowCandles()">Blow Candles 🎉</button>
+
+  <script>
+    const cake = document.getElementById("cake");
+    for(let i=0; i<31; i++) {
+      const c = document.createElement("div");
+      c.className = "candle";
+      const flame = document.createElement("div");
+      flame.className = "flame";
+      c.appendChild(flame);
+      cake.appendChild(c);
+    }
+    function blowCandles() {
+      document.querySelectorAll(".candle").forEach(c => c.classList.add("out"));
+      alert("You blew all 31 candles! 🎉❤️");
+    }
+  </script>
+</body>
+</html>
